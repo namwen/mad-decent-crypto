@@ -8,6 +8,11 @@
     if($messageInfo){
     	// send the message to the encrypting script
     	include('encrypt-image.php');
+   ?>
+   	<Response>
+   		<Message>Encryption Key: <?php echo $randomKey; ?> Timestamp: <?php echo $filename; ?></Message>
+   	</Response>
+   <?php
 	}else{
 	?>
 		<Response>

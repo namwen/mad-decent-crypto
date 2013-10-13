@@ -31,11 +31,11 @@
     $Stegger = new Stegger();
 
 	$secretMessage = $messageInfo['messageBody'];
-	$filename = microtime();
+	//$secretMessage = "Secret Message";
+ 	$filename = time();
 	$outputFile = 'tmp/images/'.$filename;
 
 	// Place an image into the stegger along with the new random key
 	$Stegger->Put($secretMessage, $image, $randomKey, $outputFile);
-	echo "worked";
 
 ?>
