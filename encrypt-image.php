@@ -9,33 +9,33 @@
 
 // send the recipient the key
 	// different file?
-	//phpinfo();
 	require_once('inc/helper-functions.php');
     require_once('Stegger.class.inc.php');
-
-	function getRandomString($length = 10 ) {
-		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-		$string = '';
-		for ($i = 0; $i < $length; $i++){
-			$string .= $characters[mt_rand(0, strlen($characters) - 1)];
-		}
-		return $string;
-	}	
+    require_once('twilio-php/Services/Twilio.php');
 
 	$randomKey = getRandomString();
 	   	
    	// This will be an image coming from somewhere.
-	$image = "http://hackru.org/images/hackru_logo.png";
+	$image = randomFlickrImage();
 	    
    	// Create a new Stegger Instance
     $Stegger = new Stegger();
 
-	$secretMessage = $messageInfo['messageBody'];
-	//$secretMessage = "Secret Message";
+	 $secretMessage = $messageInfo['messageBody'];
+	//$secretMessage = "test'";
+
  	$filename = time();
 	$outputFile = 'tmp/images/'.$filename;
 
 	// Place an image into the stegger along with the new random key
 	$Stegger->Put($secretMessage, $image, $randomKey, $outputFile);
 
+	// Send the message to the recipient with the encryption key and timestamp
+	$sid = "AC2f9c27f3c7092d24ad88b5377f546bec";
+	$token = "9c15613bef48f0085ae7a106fe547b43";
+	$client = new Services_Twilio($sid, $token);
+	$message = "Encryption Key: ".$randomKey ."Timestamp: ".$filename;
+	$recipientNumber = $messageInfo['phoneNumber'];
+
+	$client->account->messages->sendMessage("+15512266955", $recipientNumber, $message);
 ?>
