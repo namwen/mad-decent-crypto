@@ -1,7 +1,8 @@
 html, body{
 	margin: 0;
 	padding: 0;
-	height: 100%;
+	min-height: 100%;
+	height: auto;
 }
 body{
 	background: url('../da-cat-2.jpg');
@@ -32,26 +33,50 @@ ul{
 	height: auto;
 	display: block;
 }
+.image h1{
+	padding: 10px;
+}
 .image-title{
 	text-align: center;
 	margin: 0;
 	padding:0;
-	background: #fff;
+	background: #38EFFF;
+	color: #fff;
 }
 
 .selected{
-	border: 10px solid #ff69b4;
+	/*border: 10px solid #ff69b4;*/
+	box-shadow: 0px 0px 10px 20px #ff69b4;
 }
 #decryption-field{
 	position: fixed;
 	bottom: 0;
 	max-width: 1024px;
 	width: 100%;
-	background: #ff69b4;
+	background: #ff9933;
 	text-align: center;
+	padding: 0 0 20px 0;
 }
 #decrypt-key{
-	line-height: 24px;
-	font-size: 24px;
+	line-height: 26px;
+	font-size: 26px;
 	border: none;
+}
+@media screen and (max-width: 320px){
+	#main{
+		width: 300px;
+		margin: 0 auto;
+	}
+	.image{
+		display: block;
+		width: 100%;
+		overflow: hidden;
+	}
+	.image img{
+		width: 100%;
+		height: auto;
+	}
+	#images{
+		width: 100%;
+	}
 }

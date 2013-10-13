@@ -1,9 +1,14 @@
 $(window).ready(function(){
-	var $container = $("#images");
-	$container.masonry({
+	var $responsive = $('body');
+	if($responsive.width() > 320){
+		console.log("big");
+		var $container = $("#images");
+		$container.masonry({
 
-		itemSelector: '.image'
-	});
+			itemSelector: '.image'
+		});
+	}
+
 	var imageID, theMessage;
 	$(".image").on('click', function(){
 		$(".image").removeClass('selected');
@@ -12,25 +17,35 @@ $(window).ready(function(){
 		// get the timestamp
 		imageID = $(this).attr('id');
 		console.log( imageID );
-		// make an ajax request to a script that decrypts the text
-		// return the text 
-		// if that succeeds, delete the image
 	});
-	if( typeof theMessage === 'undefined' ){
+		var secretMessage;
 		$("#decrypt-key").on("input",function(){
+
 			var decryptKey = $(this).val();
 			$.ajax({
 				type: "POST",
 				url: "decrypt-image.php",
-				data:{ cryptoKey: decryptKey, imageID: imageID }
-			})
-				.done(function( secretMessage ){
-					theMessage = secretMessage;
-					$("#"+imageID+" img").remove();
-					$("#"+imageID).html("<h1>"+theMessage+"</h1>");
-				});
+				data:{ cryptoKey: decryptKey, imageID: imageID },
+				success: handleResponse(secretMessage)
+			});
 
+			function handleResponse( data ){
+					
+					theMessage = data;
+
+						$("#"+imageID+" img").remove();
+						// Make the message not suck\
+
+						$("#"+imageID).html("<h1>"+theMessage+"</h1>");
+						if( theMessage >= 400){
+							$.ajax({
+								type:"POST",
+								url: "deadImage.php",
+								data:{ deadImage: imageID}
+							});
+
+						}
+					}
+				
 		});
-	}
-
 });

@@ -245,7 +245,8 @@
         if ($this->Image->EOF()){
 
             // Tell the user the problem
-            $this->FatalError('Could not load the supplied image');
+           // $this->FatalError('Could not load the supplied image');
+            echo "IT'S GONE YO!";
 
         } else {
 
@@ -271,6 +272,7 @@
 
                     // Tell the user where it all went wrong
                     $this->FatalError('Could not decode the data');
+                   
 
                 } else {
 
@@ -281,8 +283,8 @@
                     if (!$this->StringToRaw($key)){
 
                         // Tell the user about the problem
-                        $this->FatalError('Could not decrypt data');
-
+                       // $this->FatalError('Could not decrypt data');
+                        echo 400;
                     } else {
 
                         // If we have a problem outputting data

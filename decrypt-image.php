@@ -4,7 +4,8 @@
 	require_once('inc/helper-functions.php');
     require_once('Stegger.class.inc.php');
     //instantiate stegger
-    if( $_POST['cryptoKey'] && $_POST['imageID']){
+    echo $_POST['cryptoKey'];
+    if( !empty($_POST['cryptoKey']) && !empty($_POST['imageID']) ){
 
         $imgID = $_POST['imageID'];
         $decryptKey = $_POST['cryptoKey'];
@@ -12,8 +13,7 @@
         $Image = "tmp/images/".$imgID.'.png';
         $Stegger = new Stegger();
         
-         //decoding
-         echo(  $Stegger->Get($Image, $decryptKey ) );
-            	
+       $Stegger->Get($Image, $decryptKey );
+    
     }
 ?>

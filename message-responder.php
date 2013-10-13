@@ -3,9 +3,15 @@
     echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
     $messageBody = $_REQUEST['Body'];
     
-    $messageInfo = isValidFormat($messageBody);
-
-    if($messageInfo){
+    if(isTooLong($messageBody)){
+    ?>
+		<Response>
+		    <Message>Your message is too long......STUPID!</Message>
+		</Response>
+    <?php
+    }
+	$messageInfo = isValidFormat($messageBody);
+    if( $messageInfo ){
     	// send the message to the encrypting script
     	include('encrypt-image.php');
 
@@ -18,6 +24,7 @@
 	}
     
     // Check if it is valid. iF it is return an array with info.
+    // terrible
     function isValidFormat($messageBody){
     	$pattern = '/^\d{3}-?\d{3}-?\d{4}/';
     	if(	preg_match($pattern, $messageBody, $matches) ){
@@ -31,4 +38,11 @@
 		}
 		return false;
     }
+    function isTooLong( $text ){
+    	if( strlen($text) > 160 ){
+    		return true;
+    	}
+		return false;
+    }
+
 ?>

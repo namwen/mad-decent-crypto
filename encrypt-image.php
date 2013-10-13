@@ -23,8 +23,7 @@
     $Stegger = new Stegger();
 
 	 $secretMessage = $messageInfo['messageBody'];
-	//$secretMessage = "test'";
-
+	
  	$filename = time();
 	$outputFile = 'tmp/images/'.$filename;
 

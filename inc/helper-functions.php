@@ -20,8 +20,8 @@
     }
 
     function deleteImage($deadImage){
-    	$file = glob("tmp/image/$deadImage".".png");
-    	unlink("$file");
+    	$file = "tmp/images/$deadImage".".png";
+    	unlink($file);
     }
 
 	function randomFlickrImage($tag){
