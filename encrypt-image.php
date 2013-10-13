@@ -16,7 +16,7 @@
 	$randomKey = getRandomString();
 	   	
    	// This will be an image coming from somewhere.
-   	$tag = "Jody Highroller Diplo"
+   	$tag = "Diplo based god Jody Highroller"
 	$image = randomFlickrImage($tag);
 	    
    	// Create a new Stegger Instance
