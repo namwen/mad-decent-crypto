@@ -7,10 +7,20 @@
 	</head>
 	<body>
 		<div id="main">
-	<?php
-	    require_once('inc/helper-functions.php');
-
-	?>
+			<h2>MAD DECENT CRYPTO</h2>
+			<ul id="images">
+		<?php
+	    	require_once('inc/helper-functions.php');
+	    	$imageNames = getAllImageNames();
+	    	
+			foreach( $imageNames as $image){
+				echo '<li id="'.$image.'">';
+					echo '<img src="tmp/images/'.$image.'.png">';
+					echo '<h4 class="image-title">'.$image.'</h4>';
+				echo '</li>';
+			}
+		?>
+			</ul>
 		</div>
 	</body>
 </html>

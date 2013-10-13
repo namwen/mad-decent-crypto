@@ -1,10 +1,15 @@
 <?php
     
-	function getNames(){
-		$imgNameArray = array(glob("tmp/images/*"));
-		return ($imgNameArray);
+	function getAllImageNames(){
+		$allImages = glob("tmp/images/*");
+		$imageNameArray = array();
+		foreach($allImages as $image ){
+			$blowItUp = explode('/', $image);
+			$imageName = explode('.', $blowItUp[2]);
+			array_push( $imageNameArray, $imageName[0] );
 		}
-	
+		return $imageNameArray;
+	}
 
     function emptyImageFolder(){
     	$files = glob('tmp/images/*');
