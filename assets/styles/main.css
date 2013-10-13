@@ -2,7 +2,14 @@ html, body{
 	margin: 0;
 	padding: 0;
 }
-
+#main{
+	margin: 0 auto;
+	background: url('../da-cat-2.jpg');
+	background-size: cover;
+	background-attachment: fixed;
+	overflow: hidden;
+	height: auto;
+}
 ul{
 	list-style: none;
 	padding: 0;
@@ -10,5 +17,15 @@ ul{
 }
 #images li{
 	float: left;
-
+}
+#images li img{
+	max-width: 350px;
+	height: auto;
+	display: block;
+}
+.image-title{
+	text-align: center;
+	margin: 0;
+	padding:0;
+	background: #fff;
 }
