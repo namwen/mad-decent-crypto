@@ -10,7 +10,7 @@ body{
 }
 #main{
 	margin: 0 auto;
-	height: 100%;
+	height: auto;
 	max-width: 1024px;
 	padding-bottom: 100px;
 }
@@ -25,6 +25,7 @@ ul{
 #images li{
 	float: left;
 	margin: 5px;
+	background: #38EFFF;
 }
 #images li img{
 	max-width: auto;
@@ -39,14 +40,14 @@ ul{
 }
 
 .selected{
-	border: 10px solid red;
+	border: 10px solid #ff69b4;
 }
 #decryption-field{
 	position: fixed;
 	bottom: 0;
 	max-width: 1024px;
 	width: 100%;
-	background: red;
+	background: #ff69b4;
 	text-align: center;
 }
 #decrypt-key{

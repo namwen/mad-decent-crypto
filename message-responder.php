@@ -12,7 +12,7 @@
 	}else{
 	?>
 		<Response>
-		    <Message>Invalid formatting......bitch</Message>
+		    <Message>Invalid formatting......STUPID!</Message>
 		</Response>
 	<?php
 	}

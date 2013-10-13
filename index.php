@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<div id="main">
-			<h2>MAD DECENT CRYPTO</h2>
+			<h1>MAD DECENT CRYPTO</h1>
 			<ul id="images">
 		<?php
 	    	require_once('inc/helper-functions.php');
@@ -18,7 +18,7 @@
 			foreach( $imageNames as $image){
 				echo '<li id="'.$image.'" class="image">';
 					echo '<img src="tmp/images/'.$image.'.png">';
-					echo '<h4 class="image-title">'.$image.'</h4>';
+					echo '<h3 class="image-title">'.$image.'</h3>';
 				echo '</li>';
 			}
 		?>

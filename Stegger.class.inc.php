@@ -1534,7 +1534,8 @@ class Image {
             case 'PNG':
 
                 // Create a canvas from the PNG
-                $this->Canvas = imagecreatefrompng($image); break;
+                $this->Canvas = imagecreatefrompng($image); 
+                break;
 
             // GIF
             case 'GIF':

@@ -1,10 +1,10 @@
 $(window).ready(function(){
 	var $container = $("#images");
 	$container.masonry({
-		columnWidth: 100,
+
 		itemSelector: '.image'
 	});
-	var imageID;
+	var imageID, theMessage;
 	$(".image").on('click', function(){
 		$(".image").removeClass('selected');
 		$(this).toggleClass('selected');
@@ -16,18 +16,21 @@ $(window).ready(function(){
 		// return the text 
 		// if that succeeds, delete the image
 	});
-	
-	$("#decrypt-key").on("input",function(){
-		var decryptKey = $(this).val();
-		$.ajax({
-			type: "POST",
-			url: "test.php",
-			data:{ cryptoKey: decryptKey }
-		})
-			.done(function( msg ){
-				console.log( msg );
-			});
+	if( typeof theMessage === 'undefined' ){
+		$("#decrypt-key").on("input",function(){
+			var decryptKey = $(this).val();
+			$.ajax({
+				type: "POST",
+				url: "decrypt-image.php",
+				data:{ cryptoKey: decryptKey, imageID: imageID }
+			})
+				.done(function( secretMessage ){
+					theMessage = secretMessage;
+					$("#"+imageID+" img").remove();
+					$("#"+imageID).html("<h1>"+theMessage+"</h1>");
+				});
 
-	});
+		});
+	}
 
 });
