@@ -417,12 +417,12 @@
 
                         // Message
                         case 'message':
-
+                                    ////J0dYh1ghR0lL3R
                             // Send the appropriate mime type
-                            header('Content-type: text/plain');
+                            //header('Content-type: text/plain');
 
                             // Attempt to set a file name and get the browser to download
-                            header('Content-Disposition: attachment; filename=message.txt');
+                            //header('Content-Disposition: attachment; filename=message.txt');
 
                             // Output the message
                             echo $Data['message'];
