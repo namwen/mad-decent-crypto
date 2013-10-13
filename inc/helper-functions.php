@@ -1,4 +1,11 @@
 <?php
+    
+	function getNames(){
+		$imgNameArray = array(glob("tmp/images/*"));
+		return ($imgNameArray);
+		}
+	
+
     function emptyImageFolder(){
     	$files = glob('tmp/images/*');
 		foreach($files as $file){ 
@@ -30,4 +37,6 @@
 		}
 		return $string;
 	}	
+
+
 ?>
