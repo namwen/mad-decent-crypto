@@ -19,11 +19,15 @@ ul{
 	padding: 0;
 	margin: 0;
 }
+#images{
+	width: auto;
+}
 #images li{
 	float: left;
+	margin: 5px;
 }
 #images li img{
-	max-width: 350px;
+	max-width: auto;
 	height: auto;
 	display: block;
 }
@@ -32,4 +36,21 @@ ul{
 	margin: 0;
 	padding:0;
 	background: #fff;
+}
+
+.selected{
+	border: 10px solid red;
+}
+#decryption-field{
+	position: fixed;
+	bottom: 0;
+	max-width: 1024px;
+	width: 100%;
+	background: red;
+	text-align: center;
+}
+#decrypt-key{
+	line-height: 24px;
+	font-size: 24px;
+	border: none;
 }
