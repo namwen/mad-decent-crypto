@@ -24,6 +24,8 @@
     	unlink($file);
     }
 
+    $tag = "Jody Highroller";
+    
 	function randomFlickrImage($tag){
 		include "inc/phpFlickr.php";
 		$f = new phpFlickr("c329e648c58a21803f2dda3af61bd17e", "222b02b98b03cf25");
