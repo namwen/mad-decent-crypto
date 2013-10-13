@@ -3,13 +3,6 @@
     echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
     $messageBody = $_REQUEST['Body'];
     
-    if(isTooLong($messageBody)){
-    ?>
-		<Response>
-		    <Message>Your message is too long......STUPID!</Message>
-		</Response>
-    <?php
-    }
 	$messageInfo = isValidFormat($messageBody);
     if( $messageInfo ){
     	// send the message to the encrypting script
