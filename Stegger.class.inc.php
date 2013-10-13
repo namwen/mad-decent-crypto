@@ -284,7 +284,7 @@
 
                         // Tell the user about the problem
                        // $this->FatalError('Could not decrypt data');
-                        echo 400;
+                        echo "NAHHHH SONNNN!";
                     } else {
 
                         // If we have a problem outputting data

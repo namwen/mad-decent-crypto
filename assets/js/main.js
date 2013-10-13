@@ -14,7 +14,7 @@ $(window).ready(function(){
 		$(".image").removeClass('selected');
 		$(this).toggleClass('selected');
 
-		// get the timestamp
+		// get the timestamp id
 		imageID = $(this).attr('id');
 		console.log( imageID );
 	});
@@ -27,25 +27,19 @@ $(window).ready(function(){
 				url: "decrypt-image.php",
 				data:{ cryptoKey: decryptKey, imageID: imageID },
 				success: handleResponse(secretMessage)
-			});
-
-			function handleResponse( data ){
-					
-					theMessage = data;
-
-						$("#"+imageID+" img").remove();
-						// Make the message not suck\
-
-						$("#"+imageID).html("<h1>"+theMessage+"</h1>");
-						if( theMessage >= 400){
-							$.ajax({
-								type:"POST",
-								url: "deadImage.php",
-								data:{ deadImage: imageID}
-							});
-
-						}
-					}
-				
+			});				
 		});
+		function handleResponse( data ){
+		//	theMessage = data;
+			$("#"+imageID+" img").remove();
+			$("#"+imageID).html("<h1>"+data+"</h1>");
+		
+			// if( data !="NAHHHH SONNNN!"){
+			// 	$.ajax({
+			// 		type:"POST",
+			// 		url: "deadImage.php",
+			// 		data:{ deadImage: imageID}
+			// 	})
+			// }
+		}
 });
