@@ -34,8 +34,9 @@
 	$sid = "AC2f9c27f3c7092d24ad88b5377f546bec";
 	$token = "9c15613bef48f0085ae7a106fe547b43";
 	$client = new Services_Twilio($sid, $token);
-	$message = "Encryption Key: ".$randomKey ."Timestamp: ".$filename;
+	$message = "Encryption Key: ".$randomKey ." Timestamp: ".$filename;
 	$recipientNumber = $messageInfo['phoneNumber'];
 
 	$client->account->messages->sendMessage("+15512266955", $recipientNumber, $message);
+
 ?>
