@@ -1,14 +1,18 @@
 html, body{
 	margin: 0;
 	padding: 0;
+	height: 100%;
+}
+body{
+	background: url('../da-cat-2.jpg');
+	background-size: 50%;
+	background-attachment: fixed;
 }
 #main{
 	margin: 0 auto;
-	background: url('../da-cat-2.jpg');
-	background-size: cover;
-	background-attachment: fixed;
-	overflow: hidden;
-	height: auto;
+	height: 100%;
+	max-width: 1024px;
+	padding-bottom: 100px;
 }
 ul{
 	list-style: none;
