@@ -5,7 +5,7 @@
     require_once('Stegger.class.inc.php');
     //instantiate stegger
     
-    if( !empty($_POST['cryptoKey']) && !empty($_POST['imageID']) ){
+    if( $_POST['cryptoKey'] && $_POST['imageID'] ){
 
         $imgID = $_POST['imageID'];
         $decryptKey = $_POST['cryptoKey'];

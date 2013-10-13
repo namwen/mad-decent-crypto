@@ -16,30 +16,27 @@ $(window).ready(function(){
 
 		// get the timestamp id
 		imageID = $(this).attr('id');
-		console.log( imageID );
 	});
 		var secretMessage;
 		$("#decrypt-key").on("input",function(){
-
 			var decryptKey = $(this).val();
 			$.ajax({
 				type: "POST",
 				url: "decrypt-image.php",
-				data:{ cryptoKey: decryptKey, imageID: imageID },
-				success: handleResponse(secretMessage)
-			});				
+				data: { cryptoKey: decryptKey, imageID: imageID }
+			})
+			.done(function( data ){
+				console.log( data);
+				$("#"+imageID+" img").remove();
+			 	$("#"+imageID).html("<h1>"+data+"</h1>");
+			 	if( data != "NAHHHH SONNNN!"){
+					$.ajax({
+						type:"POST",
+						url: "deadImage.php",
+						data:{ deadImage: imageID}
+					})
+			 	}
+			})			
 		});
-		function handleResponse( data ){
-		//	theMessage = data;
-			$("#"+imageID+" img").remove();
-			$("#"+imageID).html("<h1>"+data+"</h1>");
-		
-			// if( data !="NAHHHH SONNNN!"){
-			// 	$.ajax({
-			// 		type:"POST",
-			// 		url: "deadImage.php",
-			// 		data:{ deadImage: imageID}
-			// 	})
-			// }
-		}
+
 });
